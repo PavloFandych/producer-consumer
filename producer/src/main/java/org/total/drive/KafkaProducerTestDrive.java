@@ -1,10 +1,10 @@
-package producer;
+package org.total.drive;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.log4j.Logger;
-import util.Utils;
+import org.total.constants.Utils;
 
 import java.util.Properties;
 import java.util.concurrent.ExecutionException;
@@ -21,8 +21,7 @@ public final class KafkaProducerTestDrive {
 
         try {
             for (int i = 0; i < Utils.TIMES; ++i) {
-                final ProducerRecord<String, String> recordToSend = new ProducerRecord<>(Utils.TOPIC_NAME, "key",
-                        "MESSAGE");
+                final ProducerRecord<String, String> recordToSend = new ProducerRecord<>(Utils.TOPIC_NAME, "key", "MESSAGE");
                 producer.send(recordToSend).get();
                 producer.flush();
             }

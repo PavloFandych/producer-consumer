@@ -1,10 +1,10 @@
-package consumer;
+package org.total.drive;
 
 import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.log4j.Logger;
-import util.Utils;
+import org.total.constants.Utils;
 
 import java.time.Duration;
 import java.util.Collections;

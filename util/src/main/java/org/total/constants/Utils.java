@@ -1,4 +1,4 @@
-package util;
+package org.total.constants;
 
 /**
  * @author Pavlo.Fandych
