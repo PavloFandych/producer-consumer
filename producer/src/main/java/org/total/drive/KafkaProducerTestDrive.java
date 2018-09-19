@@ -17,18 +17,14 @@ public final class KafkaProducerTestDrive {
     private static final Logger LOGGER = Logger.getLogger(KafkaProducerTestDrive.class);
 
     public static void main(String[] args) {
-        final Producer<String, String> producer = createProducer();
-
-        try {
+        try (final Producer<String, String> producer = createProducer()) {
             for (int i = 0; i < Utils.TIMES; ++i) {
-                final ProducerRecord<String, String> recordToSend = new ProducerRecord<>(Utils.TOPIC_NAME, "key", "MESSAGE");
+                final ProducerRecord<String, String> recordToSend = new ProducerRecord<>(Utils.TOPIC_NAME, "key", "TEST MESSAGE");
                 producer.send(recordToSend).get();
                 producer.flush();
             }
         } catch (InterruptedException | ExecutionException e) {
             LOGGER.error(e, e);
-        } finally {
-            producer.close();
         }
     }
 

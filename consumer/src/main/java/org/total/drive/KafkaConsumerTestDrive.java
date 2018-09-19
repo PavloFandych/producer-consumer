@@ -22,13 +22,12 @@ public final class KafkaConsumerTestDrive {
         consumer.subscribe(Collections.singletonList(Utils.TOPIC_NAME));
 
         try {
-            final ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1L));
+            final ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(2L));
 
             records.forEach(record -> LOGGER
                     .info("Value: " + record.value() + " topic: " + record.topic() + " partition: " + record.partition()
                             + " offset: " + record.offset()));
-
-            consumer.commitAsync();
+            consumer.commitSync();
         } finally {
             consumer.close();
         }
