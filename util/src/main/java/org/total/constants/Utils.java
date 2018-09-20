@@ -5,9 +5,9 @@ package org.total.constants;
  */
 public final class Utils {
 
-    public static final String TOPIC_NAME = "topic-name-2";
+    public static final String TOPIC_NAME = "topic-name-4";
 
-    public static final int TIMES = 100;
+    public static final int TIMES = 100_000;
 
     private Utils() {
     }
